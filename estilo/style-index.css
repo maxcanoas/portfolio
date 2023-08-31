@@ -1,0 +1,529 @@
+body{
+    font-family:'Roboto Condensed', sans-serif;
+    margin: 0 auto;
+    max-width: 1280px;
+    min-height: 100vh;
+    background: rgb(38,45,41);
+    background: linear-gradient(90deg, rgba(38,45,41,1) 7%, rgba(54,94,84,1) 42%, rgba(40,209,209,1) 100%);
+}
+
+a{
+    color: #ffffff;
+}
+
+p{
+    color: #ffffff;
+    font-size: 18px;
+}
+
+h1{
+    color: rgb(24, 175, 175);
+    font-size: 35px;
+}
+
+h2{
+    font-size: 25px;
+}
+
+h3{
+    font-size: 20px;
+}
+
+hgroup{
+    color: #ffffff;
+    text-align: left;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 30px;
+}
+
+ul#informacoes{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+header li{
+    margin: 20px;
+}
+
+header img{
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    border-radius: 50%;
+    border: 5px solid rgb(24, 175, 175);
+}
+
+div.centro{
+    display: flex;
+    justify-content: center;
+    padding: 80px;
+}
+
+div.container{
+    margin: 10px;
+}
+
+div.container a{
+    font-size: 16px;
+    transition: 0.3s ease-in-out ;
+}
+
+div.container a:hover{
+    color: rgb(4, 255, 255);
+}
+
+div.container a.contact:hover{
+    color: rgb(4, 255, 255);
+}
+
+div.container li{
+    transition: 0.3s ease-in-out;
+    padding: 10px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-radius: 20px;
+}
+
+div li.projetos:hover{
+    transform: scale(1.2);
+    border-color: rgb(27, 189, 189);
+}
+
+div li.contato:hover{
+    transform: scale(1.2);
+    border-color: rgba(54,94,84,1);
+}
+
+main{
+    background: rgb(28, 31, 29);
+    background: linear-gradient(90deg, rgba(28, 31, 29) 7%, rgb(44, 71, 65) 42%, rgb(38, 161, 161) 100%);
+    display: flex;
+    border-radius: 10px;
+    justify-content: space-evenly;
+}
+
+main div{
+    margin: 20px;
+}
+
+main div{
+    padding: 10px;
+}
+
+.icones #github{
+    filter: invert(1);
+    transition: 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+}
+
+footer.icones #github:hover{
+    transform: scale(1.2);
+}
+
+footer.icones #linkedin{
+    filter: invert(1);
+    transition: 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+}
+
+footer.icones #linkedin:hover{
+    transform: scale(1.2);
+}
+
+.icones #insta{
+    filter: invert(1);
+    transition: 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+}
+
+.icones #insta:hover{
+    transform: scale(1.2);
+}
+
+footer img{
+    width: 30px;
+    height: 30px;
+}
+
+footer a{
+    margin: 20px;
+    text-align: center;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width:896px) {
+    .container{
+        display: flex;
+        position: relative;
+        justify-content: space-evenly;
+        margin: 0%;
+    }
+
+    #informacoes{
+        display: flex;
+        justify-content: space-evenly;
+        gap: 200px;
+    }
+
+    .maxwell{
+        width: 200px;
+        margin-left: 30px;
+        margin-top: -60px;
+    }
+
+    .sobre_mim{
+        font-size: 15px;
+    }
+
+    .formacao{
+        font-size: 15px;
+    }
+
+    .qualificacoes{
+        font-size: 15px;
+    }
+
+    #sobre_mim{
+        font-size: 20px;
+        padding-bottom: 10px;
+    }
+
+    #formacao{
+        font-size: 20px;
+        padding-bottom: 10px;
+    }
+
+    #qualificacoes{
+        font-size: 20px;
+        padding-bottom: 10px;
+    }
+
+    .fernandez{
+        font-size: 40px;
+        line-height: 40px;
+        padding-bottom: 20px;
+    }
+
+    .fronte-end{
+        font-size: 28px;
+        line-height: 30px;
+        padding-bottom: 20px;
+    }
+
+    .github{
+        width: 30px;
+        height: 30px;
+    }
+
+    .linkedin{
+        width: 30px;
+        height: 30px;
+    }
+
+    .insta{
+        width: 30px;
+        height: 30px;
+    }
+
+    .icones{
+        display: flex;
+    }
+
+    .container_corpo{
+        height: 820px;
+        width: 370px;
+        margin: 0 auto;
+        margin-top: -50px;
+        padding: 2px;
+        border-radius: 10px;
+        
+    }
+    }
+
+    @media screen and (max-width:414px) {
+        .container{
+            display: flex;
+            position: relative;
+            justify-content: space-evenly;
+            margin: 0%;
+        }
+    
+        #informacoes{
+            display: flex;
+            justify-content: space-evenly;
+            gap: 50px;
+        }
+    
+        .maxwell{
+            width: 200px;
+            margin-left: 30px;
+            margin-top: -60px;
+        }
+    
+        .sobre_mim{
+            font-size: 15px;
+        }
+    
+        .formacao{
+            font-size: 15px;
+        }
+    
+        .qualificacoes{
+            font-size: 15px;
+        }
+    
+        #sobre_mim{
+            font-size: 20px;
+            padding-bottom: 10px;
+        }
+    
+        #formacao{
+            font-size: 20px;
+            padding-bottom: 10px;
+        }
+    
+        #qualificacoes{
+            font-size: 20px;
+            padding-bottom: 10px;
+        }
+    
+        .fernandez{
+            font-size: 40px;
+            line-height: 40px;
+            padding-bottom: 20px;
+        }
+    
+        .fronte-end{
+            font-size: 28px;
+            line-height: 30px;
+            padding-bottom: 20px;
+        }
+    
+        .github{
+            width: 30px;
+            height: 30px;
+        }
+    
+        .linkedin{
+            width: 30px;
+            height: 30px;
+        }
+    
+        .insta{
+            width: 30px;
+            height: 30px;
+        }
+    
+        .icones{
+            display: flex;
+        }
+    
+        .container_corpo{
+            height: 900px;
+            width: 370px;
+            margin: 0 auto;
+            margin-top: -50px;
+            padding: 2px;
+            border-radius: 10px;
+            
+        }
+        }
+
+
+@media screen and (max-width:375px) {
+    div.container{
+        display: flex;
+        position: relative;
+        justify-content: space-evenly;
+        margin: 0%;
+    }
+
+    #informacoes{
+        display: flex;
+        justify-content: space-evenly;
+        gap: 50px;
+    }
+
+    .maxwell{
+        width: 180px;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sobre_mim{
+        font-size: 13px;
+        padding-bottom: 15px;
+    }
+
+    .formacao{
+        font-size: 13px;
+        padding-bottom: 15px;
+    }
+
+    .qualificacoes{
+        font-size: 13px;
+    }
+
+    #sobre_mim{
+        font-size: 16px;
+    }
+
+    #formacao{
+        font-size: 16px;
+    }
+
+    #qualificacoes{
+        font-size: 16px;
+    }
+
+    .fernandez{
+        font-size: 28px;
+        line-height: 25px;
+        padding-bottom: 8px;
+    }
+
+    .fronte-end{
+        font-size: 20px;
+        line-height: 20px;
+        padding-bottom: 20px;
+    }
+
+    p{
+        line-height: 17px;
+    }
+
+    .github{
+        width: 20px;
+        height: 20px;
+    }
+
+    .linkedin{
+        width: 20px;
+        height: 20px;
+    }
+
+    .insta{
+        width: 20px;
+        height: 20px;
+    }
+
+    .icones{
+        display: flex;
+        justify-content: center;
+    }
+
+    .container_corpo{
+        height: 950px;
+        width: 280px;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .container{
+        display: flex;
+        position: relative;
+        justify-content: space-evenly;
+        margin: 0%;
+    }
+
+    #informacoes{
+        display: flex;
+        justify-content: space-evenly;
+        gap: 30px;
+    }
+
+    .maxwell{
+        width: 180px;
+        margin: 0 auto;
+        margin-top: -60px;
+    }
+
+    .sobre_mim{
+        font-size: 13px;
+        padding-bottom: 15px;
+    }
+
+    h3#sobre_mim{
+        font-size: 16px;
+    }
+
+    .formacao{
+        font-size: 13px;
+        padding-bottom: 15px;
+    }
+
+    .qualificacoes{
+        font-size: 12px;
+    }
+
+    #sobre_mim{
+        font-size: 13px;
+    }
+
+    #formacao{
+        font-size: 16px;
+    }
+
+    #qualificacoes{
+        font-size: 16px;
+    }
+
+    .fernandez{
+        font-size: 28px;
+        line-height: 25px;
+        padding-bottom: 8px;
+    }
+
+    .fronte-end{
+        font-size: 18px;
+        line-height: 20px;
+        padding-bottom: 20px;
+    }
+
+    p{
+        line-height: 17px;
+    }
+
+    .github{
+        width: 20px;
+        height: 20px;
+    }
+
+    .linkedin{
+        width: 20px;
+        height: 20px;
+    }
+
+    .insta{
+        width: 20px;
+        height: 20px;
+    }
+
+    .icones{
+        display: flex;
+        justify-content: space-evenly;
+        margin-right: 20px;
+    }
+
+    .container_corpo{
+        height: 1010px;
+        width: 260px;
+        display: block;
+        justify-content: center;
+        margin: 0 auto;
+        margin-top: -50px;
+    }
+}

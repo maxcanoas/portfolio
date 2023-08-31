@@ -1,0 +1,574 @@
+body{
+    font-family:'Roboto Condensed', sans-serif;
+    margin: 0 auto;
+    max-width: 1280px;
+    min-height: 100vh;
+    background: rgb(38,45,41);
+    background: linear-gradient(90deg, rgba(38,45,41,1) 7%, rgba(54,94,84,1) 42%, rgba(40,209,209,1) 100%);
+}
+
+main{
+    padding: 100px;
+    justify-content: center;
+    width: auto;
+    height: 800px;
+    margin: 100px 0px 100px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    gap: 2em;
+}
+
+main#container{
+    box-sizing: border-box;
+    margin: 0 auto;
+    position: relative;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+div.container{
+    margin-top: -80px;
+}
+
+div.titulo{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+h1.projetos{
+    color: rgb(255, 255, 255);
+    font-size: 35px;
+    width: 300px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    transition: ease-in-out 0.5s ;
+}
+
+h1.projetos:hover{
+    color: rgb(24, 216, 216);
+    border-color: rgb(24, 216, 216);
+    transform: matrix(1.1);
+}
+
+p{
+    color: #ffffff;
+    padding-left: 30px;
+    font-size: 18px;
+    line-height: 25px;
+    text-decoration: underline;
+    margin-top: 15px;
+    gap: 2em;
+}
+
+li.the{
+    transition: ease-in-out 0.5s ;
+}
+
+li.the:hover{
+    transform: scale(1.1);
+}
+
+li.pok{
+    transition: ease-in-out 0.5s ;
+}
+
+li.pok:hover{
+    transform: scale(1.1);
+}
+
+a{
+    color: #ffffff;
+    justify-content: center;
+}
+
+header{
+    margin: 10px;
+}
+
+header a{
+    font-size: 16px;
+    transition: 0.3s ease-in-out ;
+}
+
+header a:hover{
+    color: rgb(4, 255, 255);
+}
+
+ul.menu{
+    display: flex;
+    justify-content: space-between;
+}
+
+li.home{
+    width: 90px;
+    text-align: center;
+}
+
+li.contato{
+    width: 90px;
+    text-align: center;
+}
+
+li#contao{
+    text-align: center;
+}
+
+    header li{
+        margin: 20px;
+    }
+
+ul.menu a{
+    font-size: 16px;
+    transition: 0.3s ease-in-out ;
+}
+
+ul a:hover{
+    color: rgb(4, 255, 255);
+}
+
+header li{
+        transition: 0.3s ease-in-out;
+        padding: 10px;
+        border-style: solid;
+        border-color: #ffffff;
+        border-radius: 20px;
+}
+
+header li.home:hover{
+    transform: scale(1.2);
+    border-color: rgb(27, 189, 189);
+}
+
+header li.contato:hover{
+    transform: scale(1.2);
+    border-color: rgba(54,94,84,1);
+}
+
+ul img{
+    background-color: aqua;
+    width: 500px;
+}
+
+li img{
+    border-radius: 10px;
+}
+
+main li{
+    padding-top: 20px;
+}
+
+
+main ul.conteudo{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    gap: 50px;
+}
+
+ul.conteudo:hover{
+    transform: matrix(1.1);
+    border-color: rgb(24, 216, 216);
+}
+
+ul p{
+    display: contents;
+    position: relative;
+    justify-content: center;
+}
+
+@media screen and (max-width:896px) {
+    #menu{
+        display: flex;
+        position: relative;
+        justify-content: space-evenly;
+
+    }
+
+    ul.menu{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    li.home{
+        width: 90px;
+    }
+
+    li.contato{
+        width: 90px;
+        transition: ease-in-out;
+    }
+
+    header li.contato{
+        transition: 0.3s ease-in-out;
+}
+
+    header li.contato:hover{
+        transform: scale(1.2);
+        border-color: rgb(27, 189, 189);
+    }
+
+    header a.h{
+        font-size: 18px;
+    }
+
+    header a.c{
+        font-size: 18px;
+    }
+
+    .titulo{
+        width: 180px;
+        margin: 0 auto;
+        padding-top: 10px;
+    }
+
+    h1.projetos{
+        font-size: 30px;
+    }
+
+    main p{
+        font-size: 15px;
+        width: 400px;
+        text-align: left;
+        justify-content: center;
+        line-height: 20px;
+    }
+
+
+    ul.conteudo{
+        display: block;
+        flex-direction: column;
+        justify-content: center;
+        width: 330px;
+        height: 730px;
+    }
+
+    main li{
+        padding-left: 14px;
+        padding-bottom: 5px;
+        margin: 0 auto;
+    }
+
+    div.container{
+        height: 800px;
+        width: 330px;
+        display: block;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    main#container{
+        height: 800px;
+        width: 380px;
+        display: block;
+        justify-content: center;
+        margin: 0 auto;
+        padding: 5px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+    }
+
+    .the{
+        width: 280px;
+    }
+
+    .pok{
+        width: 280px;
+    }
+    }
+
+    @media screen and (max-width:768px) {
+        #menu{
+            display: flex;
+            position: relative;
+            justify-content: space-evenly;
+        }
+    
+        ul.menu{
+            display: flex;
+            justify-content: space-evenly;
+        }
+    
+        li.home{
+            width: 90px;
+        }
+    
+        li.contato{
+            width: 90px;
+            transition: ease-in-out;
+        }
+    
+        header li.contato{
+            transition: 0.3s ease-in-out;
+    }
+    
+        header li.contato:hover{
+            transform: scale(1.2);
+            border-color: rgb(27, 189, 189);
+        }
+    
+        header a.h{
+            font-size: 18px;
+        }
+    
+        header a.c{
+            font-size: 18px;
+        }
+    
+        .titulo{
+            width: 180px;
+            margin: 0 auto;
+            padding-top: 10px;
+        }
+    
+        h1.projetos{
+            font-size: 30px;
+        }
+    
+        main p{
+            font-size: 15px;
+            width: 280px;
+            line-height: 20px;
+        }
+    
+    
+        ul.conteudo{
+            display: block;
+            flex-direction: column;
+            justify-content: center;
+            width: 320px;
+            height: 730px;
+        }
+    
+        main li{
+            padding-left: 8px;
+            padding-bottom: 5px;
+            margin: 0 auto;
+        }
+    
+        div.container{
+            height: 800px;
+            width: 320px;
+            display: block;
+            justify-content: center;
+            margin: 0 auto;
+        }
+    
+        main#container{
+            height: 850px;
+            width: 350px;
+            display: block;
+            justify-content: center;
+            margin: 0 auto;
+            padding: 5px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+        }
+    
+        .the{
+            width: 280px;
+        }
+    
+        .pok{
+            width: 280px;
+        }
+        }
+
+
+@media screen and (max-width:375px) {
+    #menu{
+        display: flex;
+        position: relative;
+        justify-content: space-evenly;
+    }
+
+    ul.menu{
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    li.home{
+        width: 90px;
+    }
+
+    li.contato{
+        width: 90px;
+        transition: ease-in-out;
+    }
+
+    header li.contato{
+        transition: 0.3s ease-in-out;
+}
+
+    header li.contato:hover{
+        transform: scale(1.2);
+        border-color: rgb(27, 189, 189);
+    }
+
+    header a.h{
+        font-size: 18px;
+    }
+
+    header a.c{
+        font-size: 18px;
+    }
+
+    .titulo{
+        width: 180px;
+        margin: 0 auto;
+    }
+
+    h1.projetos{
+        font-size: 28px;
+    }
+
+    main p{
+        font-size: 15px;
+        width: 280px;
+        line-height: 20px;
+    }
+
+
+    ul.conteudo{
+        display: block;
+        flex-direction: column;
+        justify-content: center;
+        width: 330px;
+        height: 730px;
+    }
+
+    main li{
+        padding: 12px;
+        margin: 0 auto;
+        margin-bottom: 5px;
+    }
+
+    div.container{
+        height: 650px;
+        width: 340px;
+        display: block;
+        justify-content: center;
+        margin: 0 auto;
+        padding: 5px;
+    }
+
+    main#container{
+        height: 800px;
+        width: 350px;
+        display: block;
+        justify-content: center;
+        margin: 0 auto;
+        padding: 5px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+    }
+
+    .the{
+        width: 280px;
+    }
+
+    .pok{
+        width: 280px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    #menu{
+        display: flex;
+        position: relative;
+        justify-content: space-evenly;
+    }
+
+    ul.menu{
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    li.home{
+        width: 80px;
+    }
+
+    li.contato{
+        width: 80px;
+        transition: ease-in-out;
+    }
+
+    header li.contato{
+        transition: 0.3s ease-in-out;
+}
+
+    header li.contato:hover{
+        transform: scale(1.2);
+        border-color: rgb(27, 189, 189);
+    }
+
+    header a.h{
+        font-size: 15px;
+    }
+
+    header a.c{
+        font-size: 15px;
+    }
+
+    .titulo{
+        width: 180px;
+        margin: 0 auto;
+    }
+
+    h1.projetos{
+        font-size: 25px;
+    }
+
+    main p{
+        font-size: 12px;
+        width: 220px;
+        line-height: 18px;
+    }
+
+
+    ul.conteudo{
+        display: block;
+        flex-direction: column;
+        justify-content: center;
+        width: 260px;
+        height: 620px;
+    }
+
+    main li{
+        padding: 10px;
+    }
+
+    div.container{
+        height: 550px;
+        width: 260px;
+        display: block;
+        justify-content: center;
+        margin: 0 auto;
+        padding: 2px;
+    }
+
+    main#container{
+        height: 670px;
+        width: 280px;
+        display: block;
+        justify-content: center;
+        margin: 0 auto;
+        padding: 2px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+    }
+
+    .the{
+        width: 220px;
+    }
+
+    .pok{
+        width: 220px;
+    }
+}
