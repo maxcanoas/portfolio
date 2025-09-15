@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos C# - Seu Nome</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Background Animation */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 255, 128, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 80%, rgba(0, 128, 255, 0.1) 0%, transparent 50%);
+            animation: bgFloat 15s ease-in-out infinite;
+        }
+
+        @keyframes bgFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(1deg); }
+            66% { transform: translate(-20px, 20px) rotate(-1deg); }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 255, 128, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ff80;
+            text-shadow: 0 0 20px rgba(0, 255, 128, 0.5);
+        }
+
+        .back-btn {
+            color: #00ff80;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid rgba(0, 255, 128, 0.3);
+            border-radius: 20px;
+            background: rgba(0, 255, 128, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(0, 255, 128, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 255, 128, 0.3);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 20px 50px;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #00ff80, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 255, 128, 0.3);
+        }
+
+        .page-description {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .project-card {
+            background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(40, 40, 40, 0.9));
+            border: 1px solid rgba(0, 255, 128, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(0, 255, 128, 0.1), transparent);
+            animation: cardRotate 8s linear infinite;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 255, 128, 0.3);
+            border-color: #00ff80;
+        }
+
+        @keyframes cardRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+            color: #00ff80;
+            text-shadow: 0 0 20px rgba(0, 255, 128, 0.5);
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: #b0b0b0;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: rgba(0, 255, 128, 0.2);
+            color: #00ff80;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(0, 255, 128, 0.3);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #00ff80, #00ffff);
+            color: #000;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .project-link:hover::before {
+            left: 100%;
+        }
+
+        .project-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 255, 128, 0.4);
+        }
+
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .container {
+                padding: 160px 20px 50px;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .project-links {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <header>
+        <div class="logo">Projetos C#</div>
+        <a href="index.html" class="back-btn">← Voltar ao Portfólio</a>
+    </header>
+
+    <div class="container">
+        <div class="page-header fade-in">
+            <h1 class="page-title">Projetos C#</h1>
+            <p class="page-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Explore meus projetos desenvolvidos com C# e .NET.</p>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <span class="project-icon">🖥️</span>
+                    <h3>Sistema de Gestão</h3>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sistema completo de gestão empresarial desenvolvido em C# com Windows Forms e SQL Server.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">C#</span>
+                    <span class="tech-tag">Windows Forms</span>
+                    <span class="tech-tag">SQL Server</span>
+                    <span class="tech-tag">.NET Framework</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link">GitHub</a>
+                    <a href="#" class="project-link">Demo</a>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <span class="project-icon">🌐</span>
+                    <h3>API REST</h3>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. API RESTful robusta desenvolvida com ASP.NET Core para gerenciamento de dados.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">ASP.NET Core</span>
+                    <span class="tech-tag">Entity Framework</span>
+                    <span class="tech-tag">JWT</span>
+                    <span class="tech-tag">Swagger</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link">GitHub</a>
+                    <a href="#" class="project-link">Documentação</a>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <span class="project-icon">📱</span>
+                    <h3>App Mobile</h3>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aplicativo mobile multiplataforma desenvolvido com Xamarin e C#.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Xamarin</span>
+                    <span class="tech-tag">C#</span>
+                    <span class="tech-tag">SQLite</span>
+                    <span class="tech-tag">MVVM</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link">GitHub</a>
+                    <a href="#" class="project-link">Play Store</a>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <span class="project-icon">🎮</span>
+                    <h3>Jogo 2D</h3>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Jogo 2D desenvolvido em Unity com scripts em C# e mecânicas avançadas.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Unity</span>
+                    <span class="tech-tag">C#</span>
+                    <span class="tech-tag">2D Physics</span>
+                    <span class="tech-tag">Audio</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link">GitHub</a>
+                    <a href="#" class="project-link">Jogar</a>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <span class="project-icon">🔧</span>
+                    <h3>Ferramenta CLI</h3>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ferramenta de linha de comando para automação de tarefas desenvolvida em .NET Core.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">.NET Core</span>
+                    <span class="tech-tag">Console App</span>
+                    <span class="tech-tag">File System</span>
+                    <span class="tech-tag">CLI</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link">GitHub</a>
+                    <a href="#" class="project-link">NuGet</a>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <span class="project-icon">📊</span>
+                    <h3>Dashboard Analytics</h3>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dashboard interativo para análise de dados em tempo real com SignalR e Chart.js.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">ASP.NET MVC</span>
+                    <span class="tech-tag">SignalR</span>
+                    <span class="tech-tag">Chart.js</span>
+                    <span class="tech-tag">Bootstrap</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link">GitHub</a>
+                    <a href="#" class="project-link">Demo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fade in animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        // Mouse move effect for cards
+        function cardMouseEffect() {
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', function(e) {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 20;
+                    const rotateY = (centerX - x) / 20;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+                });
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            animateOnScroll();
+            cardMouseEffect();
+        });
+
+        // Parallax effect
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            document.querySelector('.bg-animation').style.transform = `translate3d(0, ${rate}px, 0)`;
+        });
+    </script>
+</body>
+</html>

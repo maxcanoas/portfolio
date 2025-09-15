@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos WEB - Seu Nome</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Background Animation */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 100, 0, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%);
+            animation: bgFloat 15s ease-in-out infinite;
+        }
+
+        @keyframes bgFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(1deg); }
+            66% { transform: translate(-20px, 20px) rotate(-1deg); }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 0, 255, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff00ff;
+            text-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+        }
+
+        .back-btn {
+            color: #ff00ff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid rgba(255, 0, 255, 0.3);
+            border-radius: 20px;
+            background: rgba(255, 0, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 0, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(255, 0, 255, 0.3);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 20px 50px;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ff00ff, #ff6600, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 0, 255, 0.3);
+        }
+
+        .page-description {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .project-card {
+            background: linear-gradient(145deg, rgba(20, 20, 20, 0.9), rgba(40, 40, 40, 0.9));
+            border: 1px solid rgba(255, 0, 255, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 0, 255, 0.1), transparent);
+            animation: cardRotate 8s linear infinite;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 0, 255, 0.3);
+            border-color: #ff00ff;
+        }
+
+        @keyframes cardRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+            color: #ff00ff;
+            text-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: #b0b0b0;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: rgba(255, 0, 255, 0.2);
+            color: #ff00ff;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 0, 255, 0.3);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #ff00ff, #ff6600);
+            color: #000;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .project-link:hover::before {
+            left: 100%;
+        }
+
+        .project-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 0, 255, 0.4);
+        }
+
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .container {
+                padding: 160px 20px 50px;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .project-links {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <header>
+        <div class="logo">Projetos WEB</div>
+        <a href="index.html" class="back-btn">← Voltar ao Portfólio</a>
+    </header>
+
+    <div class="container">
+        <div class="page-header fade-in">
+            <h1 class="page-title">Projetos WEB</h1>
+            <p class="page-description">Acompanhe aqui nesta página os meus projetos voltados para o desenvolvimento WEB, onde pretendo abordar as mais diversas tecnologias.</p>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <span class="project-icon">🚀</span>
+                    <h3>Site Vital Acesso</h3>
+                </div>
+                <p>Vital Acesso é um site institucional voltado para serviços em altura, destacando segurança e credibilidade. Apresenta serviços, projetos e contato em um layout responsivo, limpo e de fácil navegação, otimizado para qualquer dispositivo.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">JavaScript</span>
+                </div>
+                <div class="project-links">
+                    <a href=https://github.com/maxcanoas/vitalacesso class="project-link" target="_blank">GitHub</a>
+                    <a href=https://maxcanoas.github.io/vitalacesso/ class="project-link" target="_blank">Veja o site</a>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <span class="project-icon">🦷</span>
+                    <h3>Consultório odontológico</h3>
+                </div>
+                <p>Site de um consultório odontológico, apenas uma página que abrange todos os serviços prestados pelo consultório. Utilização de mapa de localização</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                </div>
+                <div class="project-links">
+                    <a href=https://github.com/maxcanoas/clientes/tree/main/sitta-odontologia class="project-link">GitHub</a>
+                    <a href=https://maxcanoas.github.io/clientes/sitta-odontologia/ class="project-link">Veja o site</a>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <span class="project-icon">🤖</span>
+                    <h3>Projeto Android</h3>
+                </div>
+                <p>Site que conta a história do sistema operacional Android. Um dos primeiros que fiz, com a ajuda de um curso web para praticar a responsividade e demais usos de CSS e adição de vídeos em sites.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/maxcanoas/projeto-android" class="project-link">GitHub</a>
+                    <a href= https://maxcanoas.github.io/projeto-android/# class="project-link">Visite o site</a>
+                </div>
+            </div>
+
+            <!-- <div class="project-card fade-in">
+                <div class="project-header">
+                    <span class="project-icon">🌐</span>
+                    <h3>Blog NextJS</h3>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blog moderno com SSR, sistema de comentários e otimização SEO desenvolvido com Next.js e Tailwind CSS.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Next.js</span>
+                    <span class="tech-tag">Tailwind CSS</span>
+                    <span class="tech-tag">MDX</span>
+                    <span class="tech-tag">Prisma</span>
+                    <span class="tech-tag">Vercel</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link">GitHub</a>
+                    <a href="#" class="project-link">Blog</a>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <span class="project-icon">💬</span>
+                    <h3>Chat em Tempo Real</h3>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aplicação de chat com mensagens em tempo real, salas de conversa e compartilhamento de arquivos usando Socket.io.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Socket.io</span>
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Redis</span>
+                    <span class="tech-tag">AWS S3</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link">GitHub</a>
+                    <a href="#" class="project-link">Testar</a>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <span class="project-icon">📊</span>
+                    <h3>Analytics Platform</h3>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Plataforma de analytics com visualizações de dados complexas desenvolvida com Angular e D3.js para insights em tempo real.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Angular</span>
+                    <span class="tech-tag">D3.js</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">RxJS</span>
+                    <span class="tech-tag">Material UI</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link">GitHub</a>
+                    <a href="#" class="project-link">Dashboard</a>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <script>
+        // Fade in animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        // Mouse move effect for cards
+        function cardMouseEffect() {
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', function(e) {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 20;
+                    const rotateY = (centerX - x) / 20;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+                });
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            animateOnScroll();
+            cardMouseEffect();
+        });
+
+        // Parallax effect
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            document.querySelector('.bg-animation').style.transform = `translate3d(0, ${rate}px, 0)`;
+        });
+    </script>
+</body>
+</html>
