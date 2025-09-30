@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxwell - Promoção Freelancer</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .reels-container {
+            width: 540px;
+            height: 960px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Background Effects */
+        .bg-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 30%, rgba(255, 0, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 30% 70%, rgba(0, 255, 128, 0.10) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255, 100, 0, 0.06) 0%, transparent 50%);
+            animation: bgFloat 12s ease-in-out infinite;
+        }
+
+        @keyframes bgFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(15px, -10px) rotate(0.5deg); }
+            50% { transform: translate(-10px, 20px) rotate(-0.5deg); }
+            75% { transform: translate(20px, -5px) rotate(0.3deg); }
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            animation: particleFloat 8s infinite linear;
+            opacity: 0;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+            10% { opacity: 1; transform: translateY(90vh) translateX(10px) scale(1); }
+            90% { opacity: 1; transform: translateY(10vh) translateX(50px) scale(1); }
+            100% {
+                transform: translateY(-10vh) translateX(80px) scale(0);
+                opacity: 0;
+            }
+        }
+
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* Main Content */
+        .content {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        /* Header Section */
+        .header-section {
+            margin-bottom: 50px;
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00ffff, #ff00ff, #00ff80);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            line-height: 1.1;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+            animation: titlePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes titlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: #00ffff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+            font-weight: 600;
+        }
+
+        /* Services Section */
+        .services-section {
+            margin: 20px 0;
+        }
+
+        .service-highlight {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), rgba(255, 0, 255, 0.1));
+            padding: 25px 30px;
+            border-radius: 20px;
+            border: 2px solid rgba(0, 255, 255, 0.4);
+            backdrop-filter: blur(15px);
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        .service-text {
+            font-size: 2rem;
+            color: #ffffff;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            margin: 40px 0;
+        }
+
+        .contact-highlight {
+            background: linear-gradient(135deg, rgba(255, 0, 255, 0.2), rgba(0, 255, 128, 0.15));
+            padding: 20px 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 0, 255, 0.5);
+            margin: 15px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .linkedin-text {
+            font-size: 1.4rem;
+            color: #ff00ff;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(255, 0, 255, 0.4);
+        }
+
+        /* Price Section */
+        .price-section {
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .price-badge {
+            background: linear-gradient(135deg, #00ff80, #00ffff);
+            color: #000000;
+            padding: 20px 35px;
+            border-radius: 25px;
+            font-size: 2.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(0, 255, 128, 0.4);
+            animation: priceGlow 2s ease-in-out infinite alternate;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes priceGlow {
+            from { box-shadow: 0 10px 30px rgba(0, 255, 128, 0.4); }
+            to { box-shadow: 0 15px 40px rgba(0, 255, 128, 0.6); }
+        }
+
+        .price-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: priceShimmer 2s ease-in-out infinite;
+        }
+
+        @keyframes priceShimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* CTA Section */
+        .cta-section {
+            margin-top: 20px;
+        }
+
+        .cta-text {
+            font-size: 1.6rem;
+            color: #ffffff;
+            font-weight: 600;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            line-height: 1.3;
+        }
+
+        .cta-highlight {
+            color: #00ff80;
+            text-shadow: 0 0 15px rgba(0, 255, 128, 0.5);
+        }
+
+        /* Decorative Elements */
+        .corner-decoration {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(0, 255, 255, 0.4);
+        }
+
+        .corner-decoration.top-left {
+            top: 20px;
+            left: 20px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .corner-decoration.top-right {
+            top: 20px;
+            right: 20px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .corner-decoration.bottom-left {
+            bottom: 20px;
+            left: 20px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .corner-decoration.bottom-right {
+            bottom: 20px;
+            right: 20px;
+            border-left: none;
+            border-top: none;
+        }
+
+        /* Responsive for mobile viewing */
+        @media (max-width: 600px) {
+            .reels-container {
+                width: 100vw;
+                height: 100vh;
+            }
+            
+            .content {
+                padding: 40px 25px;
+            }
+            
+            .main-title {
+                font-size: 2.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .service-text {
+                font-size: 1.6rem;
+            }
+            
+            .price-badge {
+                font-size: 1.8rem;
+                padding: 18px 30px;
+            }
+            
+            .cta-text {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="reels-container">
+        <div class="bg-animation"></div>
+        <div class="particles" id="particles"></div>
+        <div class="grid-overlay"></div>
+        
+        <!-- Decorative corners -->
+        <div class="corner-decoration top-left"></div>
+        <div class="corner-decoration top-right"></div>
+        <div class="corner-decoration bottom-left"></div>
+        <div class="corner-decoration bottom-right"></div>
+        
+        <div class="content">
+            <div class="header-section">
+                <div class="main-title">MAXWELL</div>
+                <div class="subtitle">Desenvolvedor Freelancer</div>
+            </div>
+
+            <div class="services-section">
+                <div class="service-highlight">
+                    <div class="service-text">Sites Responsivos e Landing Pages</div>
+                </div>
+            </div>
+
+            <div class="contact-section">
+                <div class="contact-highlight">
+                    <div style="font-size: 1.2rem; color: #00ffff; margin-bottom: 8px; font-weight: 600;">Veja meu portfólio</div>
+                    <div class="linkedin-text">maxcanoas.github.io/portfolio</div>
+                </div>
+            </div>
+
+            <div class="price-section">
+                <div class="price-badge">Preço Acessível</div>
+            </div>
+
+            <div class="cta-section">
+                <div class="cta-text">
+                    <span class="cta-highlight">Entre em contato</span><br>
+                    e faça um orçamento
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create animated particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 6) + 's';
+                
+                // Random neon colors for particles
+                const colors = ['#00ffff', '#ff00ff', '#00ff80', '#ff6600'];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.background = randomColor;
+                particle.style.boxShadow = `0 0 8px ${randomColor}`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+        });
+    </script>
+</body>
+</html>
